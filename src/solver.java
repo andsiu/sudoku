@@ -7,7 +7,7 @@ public class solver {
         if (toSolve.solve()) {
             toSolve.display();
         } else {
-            System.out.println("solve failed");
+            System.out.println("solve failed. need to fix your input");
         }
     }
 
