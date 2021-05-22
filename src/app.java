@@ -1,7 +1,9 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 public class app extends JFrame {
     private JPanel sudokuSolver;
+    JTextField[] bigList = new JTextField[81];
     private JTextField a0Text;
     private JTextField a1Text;
     private JTextField a2Text;
@@ -84,13 +86,26 @@ public class app extends JFrame {
     private JTextField g6Text;
     private JTextField h6Text;
     private JButton button1;
+    private solver mainProgram = new solver();
+    private sudoku sudokuSubject = new sudoku();
 
     public app(String title) {
         super(title);
-
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(sudokuSolver);
         this.pack();
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("button1")) {
+            int[][] s = sudokuSubject.board;
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 9; j++) {
+
+                }
+            }
+
+        }
     }
 
     public static void main(String[] args) {

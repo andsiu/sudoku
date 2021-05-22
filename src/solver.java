@@ -1,11 +1,9 @@
 public class solver {
 
-    public sudoku toSolve = new sudoku();
-
-    public void main (String[] args) {
-        toSolve.display();
-        if (toSolve.solve()) {
-            toSolve.display();
+    public void runSolve (String[] args, sudoku s) {
+        s.display();
+        if (s.solve()) {
+            s.display();
         } else {
             System.out.println("solve failed. need to fix your input");
         }
