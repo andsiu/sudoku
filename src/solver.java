@@ -1,6 +1,6 @@
 public class solver {
 
-    public void runSolve (String[] args, sudoku s) {
+    public void runSolve (sudoku s) {
         s.display();
         if (s.solve()) {
             s.display();

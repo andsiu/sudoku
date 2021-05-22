@@ -70,14 +70,14 @@ public class sudoku {
     public boolean solve() {
         for (int row = 0; row < boardDimension; row++) {
             for (int col = 0; col < boardDimension; col++) {
-                if (board[row][col] == 0) {
+                if (customBoard[row][col] == 0) {
                     for (int value = 1; value < boardDimension + 1; value++) {
-                        if (isValid(board, row, col, value)) {
-                            board[row][col] = value;
+                        if (isValid(customBoard, row, col, value)) {
+                            customBoard[row][col] = value;
                             if (solve()) {
                                 return true;
                             } else {
-                                board[row][col] = 0;
+                                customBoard[row][col] = 0;
                             }
                         }
                     }
@@ -91,7 +91,7 @@ public class sudoku {
     public void display() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                System.out.print(" " + board[i][j]);
+                System.out.print(" " + customBoard[i][j]);
             }
             System.out.println();
         }
