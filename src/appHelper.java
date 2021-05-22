@@ -5,14 +5,19 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class appHelper extends JFrame {
-    private solver sudokuSolver;
     ArrayList<JTextField> bigList = new ArrayList<>();
     private JButton button1 = new JButton("Solve");
-    private solver mainProgram = new solver();
     private sudoku sudokuSubject = new sudoku();
 
 
     public void buttonPressed() {
+        scanIntoCustomBoard();
+        sudokuSubject.solve();
+        displayOntoTextField();
+        sudokuSubject.display();
+    }
+
+    public void scanIntoCustomBoard() {
         int temp = 0 ;
         int[][] s = sudokuSubject.customBoard;
         for (int i = 0; i < 9; i++) {
@@ -28,19 +33,35 @@ public class appHelper extends JFrame {
                 temp++;
             }
         }
+    }
 
-        sudokuSubject.solve();
-
-        sudokuSubject.display();
+    public void displayOntoTextField() {
+        int temp = 0;
+        int[][] s = sudokuSubject.customBoard;
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                 bigList.get(temp).setText(Integer.toString(s[i][j]));
+                 temp++;
+            }
+        }
 
     }
 
     public void preReq(JFrame frame) {
+        int temp = 3;
         for (int i = 0; i <= 80; i++) {
             bigList.add(new JTextField(""));
             frame.getContentPane().add(bigList.get(i));
-            bigList.get(i).setPreferredSize(new Dimension( 90, 24 ) );
-            System.out.println("finished creating jtextfield " + i);
+            bigList.get(i).setPreferredSize(new Dimension( 66, 35 ) );
+            //System.out.println("finished creating jtextfield " + i);
+            if (temp < 3) {
+                bigList.get(i).setBackground(Color.GREEN);
+                temp++;
+            } else if (temp == 5) {
+                temp = 0;
+            } else {
+                temp++;
+            }
         }
         button1.setPreferredSize(new Dimension(450, 24));
         frame.getContentPane().add(button1);

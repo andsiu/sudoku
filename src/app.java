@@ -8,7 +8,7 @@ public class app extends JFrame {
 
         JFrame frame = new JFrame("Sudoku Solver");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(900,300);
+        frame.setSize(600,400);
         frame.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 0));
         //frame.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
         frame.setResizable(false);
